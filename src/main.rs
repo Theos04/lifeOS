@@ -1,35 +1,11 @@
+mod ui; 
+
 use std::io::{self, Write};
 use std::fs::{self, OpenOptions};
 use std::path::Path;
 
-// Color helpers
-fn color(c: &str, text: &str) -> String {
-    format!("\x1b[{}m{}\x1b[0m", c, text)
-}
+use ui::{green, cyan, yellow, red, bold, dim, clear_screen};
 
-fn green(text: &str) -> String {
-    color("32", text)
-}
-
-fn cyan(text: &str) -> String {
-    color("36", text)
-}
-
-fn yellow(text: &str) -> String {
-    color("33", text)
-}
-
-fn red(text: &str) -> String {
-    color("31", text)
-}
-
-fn bold(text: &str) -> String {
-    format!("\x1b[1m{}\x1b[0m", text)
-}
-
-fn dim(text: &str) -> String {
-    format!("\x1b[2m{}\x1b[0m", text)
-}
 
 // File helpers
 fn read_entries(file_path: &str) -> Vec<String> {
