@@ -1,4 +1,3 @@
-// src/ui.rs
 // The UI module - handles all terminal output and styling
 
 use std::io::{self, Write};
